@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author ADMIN
+ * @author HA NGOC BACH
  */
 public class SlideShow extends Thread {
 

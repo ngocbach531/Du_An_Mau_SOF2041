@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 
 /**
  *
- * @author BUI QUANG HIEU
+ * @author HA NGOC BACH
  */
 public class ClockThread extends Thread {
 //    private JButton button;

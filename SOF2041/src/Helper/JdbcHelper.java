@@ -10,7 +10,7 @@ import java.sql.*;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class JdbcHelper {
 

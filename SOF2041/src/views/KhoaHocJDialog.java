@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class KhoaHocJDialog extends javax.swing.JDialog {
 

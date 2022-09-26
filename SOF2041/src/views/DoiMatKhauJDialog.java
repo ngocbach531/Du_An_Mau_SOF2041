@@ -11,7 +11,7 @@ import Helper.UtilityHelper;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class DoiMatKhauJDialog extends javax.swing.JDialog {
 

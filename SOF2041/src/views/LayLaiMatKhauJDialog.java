@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class LayLaiMatKhauJDialog extends javax.swing.JDialog {
 

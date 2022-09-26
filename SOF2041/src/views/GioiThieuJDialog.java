@@ -9,7 +9,7 @@ import Helper.Image;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class GioiThieuJDialog extends javax.swing.JDialog {
 

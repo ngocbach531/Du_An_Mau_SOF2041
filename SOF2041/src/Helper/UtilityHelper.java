@@ -16,7 +16,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class UtilityHelper {
 

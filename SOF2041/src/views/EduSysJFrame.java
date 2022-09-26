@@ -21,7 +21,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author BUI_QUANG_HIEU
+ * @author HA NGOC BACH
  */
 public class EduSysJFrame extends javax.swing.JFrame {
 
@@ -704,8 +704,7 @@ public class EduSysJFrame extends javax.swing.JFrame {
 
     public void openHuongDan() {
         try {
-//            Desktop.getDesktop().browse(new File("help/html/index.html").toURI());
-            Desktop.getDesktop().browse(URI.create("https://buiquanghieu291002.000webhostapp.com/"));
+            Desktop.getDesktop().browse(new File("/help/html/index.html").toURI());
         } catch (Exception e) {
             e.printStackTrace();
             DialogHelper.alert(this, "Không tìm thấy file hướng dẫn");
