@@ -19,10 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.Timer;
 
-/**
- *
- * @author HA NGOC BACH
- */
+
 public class EduSysJFrame extends javax.swing.JFrame {
 
     Timer _Timer;
@@ -190,7 +187,7 @@ public class EduSysJFrame extends javax.swing.JFrame {
 
         lbl_tital.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lbl_tital.setForeground(new java.awt.Color(255, 51, 51));
-        lbl_tital.setText("CHÀO BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐÀO TẠO EDUSYS by QUANG HIẾU");
+        lbl_tital.setText("CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐÀO TẠO EDUSYS by BÁCH ĐẸP TRAI");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -198,8 +195,8 @@ public class EduSysJFrame extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(274, 274, 274)
-                .addComponent(lbl_tital, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(308, Short.MAX_VALUE))
+                .addComponent(lbl_tital)
+                .addContainerGap(237, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

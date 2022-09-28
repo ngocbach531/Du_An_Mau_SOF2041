@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 public class DBConnection {
     private static String hostName = "localhost";
     private static String account = "sa";
-    private static String pass = "123456";
+    private static String pass = "123";
     private static String dbName = "SOF2041_bachhn";
     private static String connectionSQL = "jdbc:sqlserver://"+hostName+":1433;databaseName=" +dbName;
     private static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";

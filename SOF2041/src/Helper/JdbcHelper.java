@@ -15,8 +15,8 @@ import java.sql.*;
 public class JdbcHelper {
 
     public static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    public static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=EduSys_hieubq";
-    public static String username = "admin";
+    public static String dburl = "jdbc:sqlserver://localhost:1433;databaseName=SOF2041_bachhn";
+    public static String username = "sa";
     public static String password = "123";
 
     //nạp driver

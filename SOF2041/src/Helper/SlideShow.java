@@ -24,7 +24,7 @@ public class SlideShow extends Thread {
     @Override
     public void run() {
         int i = 0;
-        String line = "   CHÀO BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐÀO TẠO EDUSYS by QUANG HIẾU   ";
+        String line = "   CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG QUẢN LÝ ĐÀO TẠO EDUSYS by BÁCH ĐẸP TRAI   ";
         while (true) {
             i++;
             line = line.substring(1, line.length()) + line.charAt(0);
