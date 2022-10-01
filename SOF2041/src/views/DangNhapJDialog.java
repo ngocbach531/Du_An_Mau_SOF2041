@@ -5,18 +5,17 @@
  */
 package views;
 
-
 import Helper.Image;
 import Helper.UtilityHelper;
 import java.util.ArrayList;
-import model.nhanvien;
-import repositories.nhanvienRespository;
-
+import javax.swing.JOptionPane;
+import model.NhanVien;
+import service.INhanVienService;
+import service.impl.NhanVienServiceImpl;
 
 public class DangNhapJDialog extends javax.swing.JDialog {
 
-    ArrayList<nhanvien> list = new nhanvienRespository().getall();
-    
+    private INhanVienService iNhanVienService;
     int _count = 0;
 
     public DangNhapJDialog(java.awt.Frame parent, boolean modal) {
@@ -25,7 +24,7 @@ public class DangNhapJDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setIconImage(Image.getAppIcon());
         setResizable(false);
-
+        iNhanVienService = new NhanVienServiceImpl();
     }
 
     @SuppressWarnings("unchecked")
@@ -144,21 +143,9 @@ public class DangNhapJDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_dangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_dangNhapActionPerformed
-
-        if (UtilityHelper.checkNullText(txtTenDangNhap)) {
-            if (UtilityHelper.checkNullText(txtMatKhau)) {
-                String username = txtTenDangNhap.getText();
-                String password = new String(txtMatKhau.getPassword());
-                nhanvien nv = nhanvienRespository.findById(username);
-                if (nv == null) {
-                    Helper.DialogHelper.alert(this, "Sai tên đăng nhập !");
-                } else if (!password.equals(nv.getMatkhau())) {
-                    Helper.DialogHelper.alert(this, "Sai mật khẩu !");
-                } else {
-                    Helper.ShareHelper.USER = nv;
-                    this.dispose();
-                }
-            }
+        NhanVien nv = iNhanVienService.getNVbyMaAndPass(txtTenDangNhap.getText(), txtMatKhau.getText());
+        if (nv != null) {
+            dispose();
         }
 
     }//GEN-LAST:event_btn_dangNhapActionPerformed

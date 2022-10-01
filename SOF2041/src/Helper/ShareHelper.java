@@ -5,13 +5,10 @@
  */
 package Helper;
 
-import model.NhanVien;
 import javax.swing.ImageIcon;
+import model.NhanVien;
 
-/**
- *
- * @author HA NGOC BACH
- */
+
 public class ShareHelper {
 
     public static final java.awt.Image APP_ICON;
@@ -36,7 +33,7 @@ public class ShareHelper {
     }
 
     public static boolean isManager() {
-        return isLogin() && USER.isVaiTro();
+        return isLogin() && USER.isVaitro();
     }
 
     public static boolean authenticated() {

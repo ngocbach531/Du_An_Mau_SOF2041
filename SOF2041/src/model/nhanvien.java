@@ -1,23 +1,23 @@
 
 package model;
 
-public class nhanvien {
+public class NhanVien {
     private String manv;
     private String matkhau;
     private String hoten;
     private boolean vaitro;
 
-    public nhanvien() {
+    public NhanVien() {
     }
 
-    public nhanvien(String manv, String matkhau, String hoten, boolean vaitro) {
+    public NhanVien(String manv, String matkhau, String hoten, boolean vaitro) {
         this.manv = manv;
         this.matkhau = matkhau;
         this.hoten = hoten;
         this.vaitro = vaitro;
     }
 
-    public nhanvien(String manv, String matkhau) {
+    public NhanVien(String manv, String matkhau) {
         this.manv = manv;
         this.matkhau = matkhau;
     }
