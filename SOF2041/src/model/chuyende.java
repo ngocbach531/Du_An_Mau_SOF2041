@@ -1,7 +1,7 @@
 
 package model;
 
-public class chuyende {
+public class ChuyenDe {
     private String machuyende;
     private String tenchuyende;
     private double hocphi;
@@ -9,10 +9,10 @@ public class chuyende {
     private String hinh;
     private String mota;
 
-    public chuyende() {
+    public ChuyenDe() {
     }
 
-    public chuyende(String machuyende, String tenchuyende, double hocphi, int thoiluong, String hinh, String mota) {
+    public ChuyenDe(String machuyende, String tenchuyende, double hocphi, int thoiluong, String hinh, String mota) {
         this.machuyende = machuyende;
         this.tenchuyende = tenchuyende;
         this.hocphi = hocphi;

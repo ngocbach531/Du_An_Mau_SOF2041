@@ -3,7 +3,7 @@ package model;
 
 import java.util.Date;
 
-public class nguoihoc {
+public class NguoiHoc {
     private String manh;
     private String hoten;
     private Date ngaysinh;
@@ -14,10 +14,10 @@ public class nguoihoc {
     private String manv;
     private Date ngaydki;
 
-    public nguoihoc() {
+    public NguoiHoc() {
     }
 
-    public nguoihoc(String manh, String hoten, Date ngaysinh, boolean gioitinh, String dienthoai, String email, String ghichu, String manv, Date ngaydki) {
+    public NguoiHoc(String manh, String hoten, Date ngaysinh, boolean gioitinh, String dienthoai, String email, String ghichu, String manv, Date ngaydki) {
         this.manh = manh;
         this.hoten = hoten;
         this.ngaysinh = ngaysinh;

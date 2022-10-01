@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import model.NhanVien;
 import service.INhanVienService;
-import service.impl.NhanVienServiceImpl;
+import service.implement.NhanVienServiceImplement;
 
 public class DangNhapJDialog extends javax.swing.JDialog {
 
@@ -24,7 +24,7 @@ public class DangNhapJDialog extends javax.swing.JDialog {
         setLocationRelativeTo(null);
         setIconImage(Image.getAppIcon());
         setResizable(false);
-        iNhanVienService = new NhanVienServiceImpl();
+        iNhanVienService = new NhanVienServiceImplement();
     }
 
     @SuppressWarnings("unchecked")

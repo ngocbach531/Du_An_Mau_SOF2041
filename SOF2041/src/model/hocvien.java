@@ -1,16 +1,16 @@
 
 package model;
 
-public class hocvien {
+public class HocVien {
     private String mahv;
     private String makh;
     private String manh;
     private Double diem;
 
-    public hocvien() {
+    public HocVien() {
     }
 
-    public hocvien(String mahv, String makh, String manh, Double diem) {
+    public HocVien(String mahv, String makh, String manh, Double diem) {
         this.mahv = mahv;
         this.makh = makh;
         this.manh = manh;

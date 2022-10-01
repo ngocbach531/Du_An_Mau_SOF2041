@@ -1,8 +1,8 @@
-package service.impl;
+package service.implement;
 
 import model.NhanVien;
 import repositories.INhanvienRespository;
-import repositories.impl.NhanVienRepositoryImpl;
+import repositories.implement.NhanVienRepositoryImplement;
 import service.INhanVienService;
 
 /*
@@ -13,9 +13,9 @@ import service.INhanVienService;
  *
  * @author HA NGOC BACH
  */
-public class NhanVienServiceImpl implements INhanVienService {
+public class NhanVienServiceImplement implements INhanVienService {
 
-    private INhanvienRespository iNhanvienRespository = new NhanVienRepositoryImpl();
+    private INhanvienRespository iNhanvienRespository = new NhanVienRepositoryImplement();
 
     @Override
     public NhanVien getNVbyMaAndPass(String maNv, String password) {

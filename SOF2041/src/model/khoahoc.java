@@ -3,7 +3,7 @@ package model;
 
 import java.util.Date;
 
-public class khoahoc {
+public class KhoaHoc {
     private int makh;
     private String machuyende;
     private double hocphi;
@@ -13,10 +13,10 @@ public class khoahoc {
     private String manv;
     private Date ngaytao;
 
-    public khoahoc() {
+    public KhoaHoc() {
     }
 
-    public khoahoc(int makh, String machuyende, double hocphi, int thoiluong, Date ngaykhaigiang, String ghichu, String manv, Date ngaytao) {
+    public KhoaHoc(int makh, String machuyende, double hocphi, int thoiluong, Date ngaykhaigiang, String ghichu, String manv, Date ngaytao) {
         this.makh = makh;
         this.machuyende = machuyende;
         this.hocphi = hocphi;
