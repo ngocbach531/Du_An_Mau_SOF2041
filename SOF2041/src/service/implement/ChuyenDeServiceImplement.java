@@ -8,10 +8,10 @@ import java.util.ArrayList;
 import model.ChuyenDe;
 import repositories.IChuyenDeRespository;
 import repositories.implement.ChuyenDeRespositoryImplement;
-import service.IChuyenDeSevice;
+import service.IChuyenDeService;
 
 
-public class ChuyenDeServiceImplement implements IChuyenDeSevice{
+public class ChuyenDeServiceImplement implements IChuyenDeService{
     
     private IChuyenDeRespository chuyenDeRespository = new ChuyenDeRespositoryImplement();
     @Override
@@ -20,9 +20,24 @@ public class ChuyenDeServiceImplement implements IChuyenDeSevice{
     }
 
     @Override
-    public ChuyenDe finById(String macd) {
-        return chuyenDeRespository.finById(macd);
+    public ChuyenDe finByMaCd(String macd) {
+        return chuyenDeRespository.finByMaCd(macd);
     }
-    
-    
+   
+
+    @Override
+    public ChuyenDe xoaChuyenDe(String macd) {
+        return chuyenDeRespository.xoaChuyenDe(macd);
+    }
+
+
+    @Override
+    public boolean themChuyenDe(ChuyenDe cd) {
+        return chuyenDeRespository.ThemChuyenDe(cd);
+    }
+
+    @Override
+    public boolean SuaChuyenDe(ChuyenDe cd, String Macd) {
+        return chuyenDeRespository.SuaChuyenDe(cd, Macd);
+    }
 }

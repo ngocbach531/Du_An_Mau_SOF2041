@@ -14,5 +14,11 @@ import model.ChuyenDe;
 public interface IChuyenDeRespository extends IDBConnection{
     public ArrayList<ChuyenDe> getallChuyenDe();
 
-    public ChuyenDe finById(String macd);
+    public ChuyenDe finByMaCd(String macd);
+    
+    public ChuyenDe xoaChuyenDe(String macd);
+    
+    public boolean ThemChuyenDe(ChuyenDe cd);
+    
+    public boolean SuaChuyenDe(ChuyenDe cd,String Macd );
 }

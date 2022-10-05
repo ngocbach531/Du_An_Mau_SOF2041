@@ -22,22 +22,12 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
         con = openDbConnection();
         if (con != null) {
             try {
-                int indexParam = 1;
                 ps = con.prepareStatement(query);
-
                 rs = ps.executeQuery();
                 while (rs.next()) {
-                    int indexValue = 1;
-                    ChuyenDe cd = new ChuyenDe();
-                    cd.setMachuyende(rs.getString(indexValue++));
-                    cd.setTenchuyende(rs.getString(indexValue++));
-                    cd.setHocphi(rs.getDouble(indexValue++));
-                    cd.setThoiluong(rs.getInt(indexValue++));
-                    cd.setHinh(rs.getString(indexValue++));
-                    cd.setMota(rs.getString(indexValue++));
+                listCd.add(new ChuyenDe(rs.getNString(1), rs.getNString(2), rs.getDouble(3), rs.getInt(4), rs.getNString(5), rs.getNString(6)));
+            }
 
-                    listCd.add(cd);
-                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally {
@@ -52,7 +42,7 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
     }
 
     @Override
-    public ChuyenDe finById(String macd) {
+    public ChuyenDe finByMaCd(String macd) {
         ChuyenDe cd = null;
         String query = "SELECT * FROM CHUYENDE WHERE macd = ?";
 
@@ -64,17 +54,14 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
                 ps = con.prepareStatement(query);
                 ps.setString(indexParam++, macd);
                 rs = ps.executeQuery();
-                while (rs.next()) {
-                    int indexValue = 1;
-                    cd = new ChuyenDe();
-                    cd.setMachuyende(rs.getString(indexValue++));
-                    cd.setTenchuyende(rs.getString(indexValue++));
-                    cd.setHocphi(rs.getDouble(indexValue++));
-                    cd.setThoiluong(rs.getInt(indexValue++));
-                    cd.setHinh(rs.getString(indexValue++));
-                    cd.setMota(rs.getString(indexValue++));
+                cd = new ChuyenDe();
+                ps.setObject(1, cd.getMachuyende());
+                ps.setObject(2, cd.getTenchuyende());
+                ps.setObject(3, cd.getHocphi());
+                ps.setObject(4, cd.getThoiluong());
+                ps.setObject(5, cd.getHinh());
+                ps.setObject(6, cd.getMota());
 
-                }
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally {
@@ -88,4 +75,95 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
         return cd;
     }
 
+    @Override
+    public ChuyenDe xoaChuyenDe(String macd) {
+        ChuyenDe cd = null;
+        String query = "DELETE FROM CHUYENDE WHERE macd = ?";
+
+        //Mở kết nối
+        con = openDbConnection();
+        if (con != null) {
+            try {
+                int indexParam = 1;
+                ps = con.prepareStatement(query);
+                cd = new ChuyenDe();
+                cd.setMachuyende(macd);
+                ps.executeUpdate();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                closeConnection(con);
+            }
+
+        } else {
+            System.out.println("Kết nối đến database thất bại");
+        }
+        return cd;
+    }
+
+    @Override
+    public boolean ThemChuyenDe(ChuyenDe cd) {
+        int check = 0;
+        String query = "INSERT INTO [dbo].[CHUYENDE]\n"
+                + "           ([MACD]\n"
+                + "           ,[TENCD]\n"
+                + "           ,[HOCPHI]\n"
+                + "           ,[THOILUONG]\n"
+                + "           ,[HINH]\n"
+                + "           ,[MOTA])\n"
+                + "     VALUES\n"
+                + "           (?,?,?,?,?,?)";
+
+        //Mở kết nối
+        con = openDbConnection();
+        try {
+            ps = con.prepareStatement(query);
+            ps.setObject(1, cd.getMachuyende());
+            ps.setObject(2, cd.getTenchuyende());
+            ps.setObject(3, cd.getHocphi());
+            ps.setObject(4, cd.getThoiluong());
+            ps.setObject(5, cd.getHinh());
+            ps.setObject(6, cd.getMota());
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection(con);
+        }
+
+        return check > 0;
+    }
+
+    @Override
+    public boolean SuaChuyenDe(ChuyenDe Cd, String Macd) {
+        int check = 0;
+        String query = "UPDATE [dbo].[CHUYENDE]\n"
+                + "   SET [MACD] = ?\n"
+                + "      ,[TENCD] = ?\n"
+                + "      ,[HOCPHI] = ?\n"
+                + "      ,[THOILUONG] = ?\n"
+                + "      ,[HINH] = ?\n"
+                + "      ,[MOTA] = ?\n"
+                + " WHERE <MACD = ?>";
+
+        //Mở kết nối
+        con = openDbConnection();
+        try {
+            ps = con.prepareStatement(query);
+            ps.setObject(1, Cd.getMachuyende());
+            ps.setObject(2, Cd.getTenchuyende());
+            ps.setObject(3, Cd.getHocphi());
+            ps.setObject(4, Cd.getThoiluong());
+            ps.setObject(5, Cd.getHinh());
+            ps.setObject(6, Cd.getMota());
+            ps.setObject(7, Macd);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        } finally {
+            closeConnection(con);
+        }
+
+        return check > 0;
+    }
 }

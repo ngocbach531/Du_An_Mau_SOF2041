@@ -18,8 +18,8 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import model.ChuyenDe;
-import service.IChuyenDeSevice;
 import service.implement.ChuyenDeServiceImplement;
+import service.IChuyenDeService;
 
 /**
  *
@@ -27,7 +27,7 @@ import service.implement.ChuyenDeServiceImplement;
  */
 public class ChuyenDeJDialog extends javax.swing.JDialog {
 
-    private IChuyenDeSevice chuyenDeSevice = new ChuyenDeServiceImplement();
+    IChuyenDeService chuyenDeSevice = new ChuyenDeServiceImplement();
     int _row = 0;
     File _file;
     FileDialog _fd = new FileDialog(new Frame(), "Chọn logo cho chuyên đề", FileDialog.LOAD);
@@ -63,21 +63,11 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
-        btnFirst = new javax.swing.JButton();
-        btnPrev = new javax.swing.JButton();
-        btnNext = new javax.swing.JButton();
-        btnLast = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         lblHinh = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblChuyenDe = new javax.swing.JTable();
-        btnFirst1 = new javax.swing.JButton();
-        btnPrev1 = new javax.swing.JButton();
-        btnNext1 = new javax.swing.JButton();
-        btnLast1 = new javax.swing.JButton();
-        lbl_trang = new javax.swing.JLabel();
-        lbl_soTrang = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("EduSys - Quản lý chuyên đề");
@@ -158,34 +148,6 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             }
         });
 
-        btnFirst.setText("|<");
-        btnFirst.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirstActionPerformed(evt);
-            }
-        });
-
-        btnPrev.setText("<<");
-        btnPrev.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrevActionPerformed(evt);
-            }
-        });
-
-        btnNext.setText(">>");
-        btnNext.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNextActionPerformed(evt);
-            }
-        });
-
-        btnLast.setText(">|");
-        btnLast.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLastActionPerformed(evt);
-            }
-        });
-
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Hình logo");
 
@@ -210,21 +172,15 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
                                 .addComponent(btnInsert)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(44, 44, 44)
                                 .addComponent(btnUpdate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(45, 45, 45)
                                 .addComponent(btnDelete)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                                 .addComponent(btnClear)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnFirst)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPrev)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnNext)
-                                .addGap(9, 9, 9)
-                                .addComponent(btnLast))
+                                .addGap(54, 54, 54))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
@@ -276,10 +232,6 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
                     .addComponent(btnInsert)
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
-                    .addComponent(btnFirst)
-                    .addComponent(btnPrev)
-                    .addComponent(btnNext)
-                    .addComponent(btnLast)
                     .addComponent(btnClear))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -313,81 +265,22 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             tblChuyenDe.getColumnModel().getColumn(1).setMinWidth(200);
         }
 
-        btnFirst1.setText("|<");
-        btnFirst1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFirst1ActionPerformed(evt);
-            }
-        });
-
-        btnPrev1.setText("<<");
-        btnPrev1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPrev1ActionPerformed(evt);
-            }
-        });
-
-        btnNext1.setText(">>");
-        btnNext1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNext1ActionPerformed(evt);
-            }
-        });
-
-        btnLast1.setText(">|");
-        btnLast1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLast1ActionPerformed(evt);
-            }
-        });
-
-        lbl_trang.setText("jLabel4");
-
-        lbl_soTrang.setText("jLabel4");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 581, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnFirst1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPrev1)
-                        .addGap(37, 37, 37)
-                        .addComponent(lbl_trang)
-                        .addGap(32, 32, 32)
-                        .addComponent(btnNext1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnLast1)
-                        .addGap(41, 41, 41)
-                        .addComponent(lbl_soTrang)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnFirst1, btnLast1, btnNext1, btnPrev1});
-
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFirst1)
-                    .addComponent(btnPrev1)
-                    .addComponent(btnNext1)
-                    .addComponent(lbl_trang)
-                    .addComponent(lbl_soTrang)
-                    .addComponent(btnLast1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
-
-        jPanel2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnFirst1, btnLast1, btnNext1, btnPrev1});
 
         tabs.addTab("DANH SÁCH", jPanel2);
 
@@ -429,7 +322,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             this.edit();
         }
         duadulieulenbang();
-
+        
     }
 
     //Đổ dữ liệu từ CSDL lên table
@@ -451,12 +344,10 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     }
 
     //Thêm 1 bản ghi mới từ form vào CSDL
-    public void insert() {
+    public void them() {
         ChuyenDe cd = getForm();
         try {
-            _ChuyenDeDAO.insert(cd);
-//            this.fillTable(_trang);
-            this.viewSoTrang();
+            chuyenDeSevice.themChuyenDe(cd);
             this.clearForm();
             tabs.setSelectedIndex(1);
             Helper.DialogHelper.alert(this, "Thêm mới thành công!");
@@ -467,12 +358,9 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     }
 
     //Sửa 1 bản ghi mới từ form vào CSDL theo MaCD
-    public void update() {
+    public void sua() {
         ChuyenDe cd = getForm();
         try {
-            _ChuyenDeDAO.update(cd);
-//            this.fillTable(_trang);
-            this.viewSoTrang();
             tabs.setSelectedIndex(1);
             Helper.DialogHelper.alert(this, "Cập nhật thành công!");
         } catch (Exception e) {
@@ -482,13 +370,11 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     }
 
     //Xóa 1 bản ghi từ CSDL xong update lại table
-    public void delete() {
+    public void xoa() {
         if (Helper.DialogHelper.confirm(this, "Bạn có muốn xóa hay không?")) {
             String macd = txtMaChuyenDe.getText();
             try {
-                _ChuyenDeDAO.delete(macd);
-//                this.fillTable(_trang);
-                this.viewSoTrang();
+                chuyenDeSevice.xoaChuyenDe(macd);
                 this.clearForm();
                 tabs.setSelectedIndex(1);
                 Helper.DialogHelper.alert(this, "Xóa thành công!");
@@ -502,11 +388,11 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     //Lấy dữ liệu trên form đổ vào đối tượng
     public ChuyenDe getForm() {
         ChuyenDe cd = new ChuyenDe();
-        cd.setMaCD(txtMaChuyenDe.getText());
-        cd.setTenCD(txtTenChuyenDe.getText());
-        cd.setHocPhi(Double.parseDouble(txtHocPhi.getText()));
-        cd.setThoiLuong(Integer.parseInt(txtThoiLuong.getText()));
-        cd.setMoTa(txtMoTa.getText());
+        cd.setMachuyende(txtMaChuyenDe.getText());
+        cd.setTenchuyende(txtTenChuyenDe.getText());
+        cd.setHocphi(Double.parseDouble(txtHocPhi.getText()));
+        cd.setThoiluong(Integer.parseInt(txtThoiLuong.getText()));
+        cd.setMota(txtMoTa.getText());
         cd.setHinh(_images);
         return cd;
     }
@@ -535,7 +421,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     //Lấy dữ liệu theo index đổ lên form
     public void edit() {
         String macd = (String) tblChuyenDe.getValueAt(this._row, 0);
-        ChuyenDe nv = chuyenDeSevice.finById(macd);
+        ChuyenDe nv = chuyenDeSevice.finByMaCd(macd);
         try {
             if (nv != null) {
                 this.setForm(nv); // điền thông tin lên form
@@ -549,7 +435,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
 
     //Check trùng mã
     public boolean checkTrungMa(String macd) {
-        if (_ChuyenDeDAO.selectById(macd) == null) {
+        if (chuyenDeSevice.finByMaCd(macd) == null) {
             return true;
         } else {
             Helper.DialogHelper.alert(this, macd + " đã tồn tại !");
@@ -575,10 +461,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         btnDelete.setEnabled(!insertable);  //disable brnDelete
         boolean first = this._row > 0;
         boolean last = this._row < tblChuyenDe.getRowCount() - 1;
-        btnFirst.setEnabled(!insertable && first);//enable 4 nút này khi ở editable
-        btnPrev.setEnabled(!insertable && first); //disable khi First, Prev khi ở bản ghi đầu (index = 0)
-        btnNext.setEnabled(!insertable && last);  //disable khi Next, Last khi ở bản ghi cuối
-        btnLast.setEnabled(!insertable && last);  //index = tblGridView.getRowCount() - 1
+
     }
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
@@ -596,7 +479,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
                     && Helper.UtilityHelper.checkHocPhi(txtHocPhi)
                     && Helper.UtilityHelper.checkMoTaCD(txtMoTa)) {
                 if (checkTrungMa(txtMaChuyenDe.getText())) {
-                    insert();
+                    them();
                 }
             }
         }
@@ -617,38 +500,18 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
                     && Helper.UtilityHelper.checkSoHocPhi(txtHocPhi)
                     && Helper.UtilityHelper.checkHocPhi(txtHocPhi)
                     && Helper.UtilityHelper.checkMoTaCD(txtMoTa)) {
-                update();
+                sua();
             }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-//        if (Helper.ShareHelper.USER.isVaiTro()) {
-//            delete();
-//        } else {
-//            Helper.DialogHelper.alert(this, "Chỉ trưởng phòng mới được phép xóa");
-//        }
+        if (Helper.ShareHelper.USER.isVaitro()) {
+            xoa();
+        } else {
+            Helper.DialogHelper.alert(this, "Chỉ trưởng phòng mới được phép xóa");
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnFirstActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirstActionPerformed
-        this._row = 0;
-        this.edit();
-    }//GEN-LAST:event_btnFirstActionPerformed
-
-    private void btnPrevActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrevActionPerformed
-        this._row--;
-        this.edit();
-    }//GEN-LAST:event_btnPrevActionPerformed
-
-    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        this._row++;
-        this.edit();
-    }//GEN-LAST:event_btnNextActionPerformed
-
-    private void btnLastActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLastActionPerformed
-        this._row = tblChuyenDe.getRowCount() - 1;
-        this.edit();
-    }//GEN-LAST:event_btnLastActionPerformed
 
     private void lblHinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHinhMouseClicked
         try {
@@ -690,38 +553,6 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             clearForm();
         }
     }//GEN-LAST:event_btnClearActionPerformed
-
-    private void btnFirst1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFirst1ActionPerformed
-        _trang = 1;
-        this.fillTable(_trang);
-        lbl_trang.setText("Trang: " + _trang);
-        lbl_soTrang.setText(_trang + "/" + _soTrang);
-    }//GEN-LAST:event_btnFirst1ActionPerformed
-
-    private void btnPrev1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrev1ActionPerformed
-        if (_trang > 1) {
-            _trang--;
-            this.fillTable(_trang);
-            lbl_trang.setText("Trang: " + _trang);
-            lbl_soTrang.setText(_trang + "/" + _soTrang);
-        }
-    }//GEN-LAST:event_btnPrev1ActionPerformed
-
-    private void btnNext1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNext1ActionPerformed
-        if (_trang < _soTrang) {
-            _trang++;
-            this.fillTable(_trang);
-            lbl_trang.setText("Trang: " + _trang);
-            lbl_soTrang.setText(_trang + "/" + _soTrang);
-        }
-    }//GEN-LAST:event_btnNext1ActionPerformed
-
-    private void btnLast1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLast1ActionPerformed
-        _trang = _soTrang;
-        this.fillTable(_trang);
-        lbl_trang.setText("Trang: " + _trang);
-        lbl_soTrang.setText(_trang + "/" + _soTrang);
-    }//GEN-LAST:event_btnLast1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -768,15 +599,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnFirst;
-    private javax.swing.JButton btnFirst1;
     private javax.swing.JButton btnInsert;
-    private javax.swing.JButton btnLast;
-    private javax.swing.JButton btnLast1;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JButton btnNext1;
-    private javax.swing.JButton btnPrev;
-    private javax.swing.JButton btnPrev1;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -790,8 +613,6 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblHinh;
-    private javax.swing.JLabel lbl_soTrang;
-    private javax.swing.JLabel lbl_trang;
     private javax.swing.JTabbedPane tabs;
     private javax.swing.JTable tblChuyenDe;
     private javax.swing.JTextField txtHocPhi;

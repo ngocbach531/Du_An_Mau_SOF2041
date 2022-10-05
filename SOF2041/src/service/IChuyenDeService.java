@@ -11,8 +11,14 @@ import model.ChuyenDe;
  *
  * @author HA NGOC BACH
  */
-public interface IChuyenDeSevice {
+public interface IChuyenDeService {
     public ArrayList<ChuyenDe> getallChuyenDe();
 
-    public ChuyenDe finById(String macd);
+    public ChuyenDe finByMaCd(String macd);
+    
+    public ChuyenDe xoaChuyenDe(String macd);
+    
+    public boolean themChuyenDe(ChuyenDe cd);
+    
+    public boolean SuaChuyenDe(ChuyenDe cd,String Macd );
 }

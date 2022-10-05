@@ -5,10 +5,6 @@
  */
 package views;
 
-import DAO.ChuyenDeDAO;
-import DAO.KhoaHocDAO;
-import Entity.ChuyenDe;
-import Entity.KhoaHoc;
 import Helper.DateHelper;
 import Helper.DialogHelper;
 import Helper.Image;
@@ -23,6 +19,13 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import model.ChuyenDe;
+import model.KhoaHoc;
+import repositories.implement.ChuyenDeRespositoryImplement;
+import service.IChuyenDeService;
+import service.IKhoaHocService;
+import service.implement.ChuyenDeServiceImplement;
+import service.implement.KhoaHocServiceImplement;
 
 /**
  *
@@ -30,11 +33,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class KhoaHocJDialog extends javax.swing.JDialog {
 
-    ChuyenDeDAO _ChuyenDeDAO = new ChuyenDeDAO();
-    KhoaHocDAO _KhoaHocDAO = new KhoaHocDAO();
+    IChuyenDeService ChuyenDeService = new ChuyenDeServiceImplement();
+    
+    IKhoaHocService KhoaHocService = new KhoaHocServiceImplement();
+    
     int _row = 0;
     int _maKH;
-    int _trang = 1, _soTrang;
 
     /**
      * Creates new form NewJDialog
@@ -52,10 +56,10 @@ public class KhoaHocJDialog extends javax.swing.JDialog {
         setResizable(true);
         fillComboBoxChuyenDe();
         selectChuyenDe();
-//        txtHocPhi.setEnabled(false);
-//        txtThoiLuong.setEnabled(false);
-//        txtNguoiTao.setEnabled(false);
-//        txtNgayTao.setEnabled(false);      
+        txtHocPhi.setEnabled(false);
+        txtThoiLuong.setEnabled(false);
+        txtNguoiTao.setEnabled(false);
+        txtNgayTao.setEnabled(false);      
         txtKhaiGiang.setDateFormatString("dd/MM/yyyy");
         if (tblKhoaHoc.getRowCount() == 0) {
             this.setStatus(true);
@@ -70,8 +74,8 @@ public class KhoaHocJDialog extends javax.swing.JDialog {
         if (chuyenDe == null) {
             return;
         }
-        List<KhoaHoc> list = _KhoaHocDAO.findByCD(chuyenDe.getMaCD()); //Add list khóa học thông qua mã chuyên đề
-        if (_KhoaHocDAO.countDB(chuyenDe.getMaCD()) % 10 == 0) {
+        List<KhoaHoc> list = KhoaHocService.findByCD(chuyenDe.getMachuyende()); //Add list khóa học thông qua mã chuyên đề
+        if (KhoaHocService.countDB(chuyenDe.getMachuyende()) % 10 == 0) {
             _soTrang = _KhoaHocDAO.countDB(chuyenDe.getMaCD()) / 10;
         } else {
             _soTrang = _KhoaHocDAO.countDB(chuyenDe.getMaCD()) / 10 + 1;
