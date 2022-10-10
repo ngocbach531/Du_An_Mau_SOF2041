@@ -144,7 +144,7 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
                 + "      ,[THOILUONG] = ?\n"
                 + "      ,[HINH] = ?\n"
                 + "      ,[MOTA] = ?\n"
-                + " WHERE <MACD = ?>";
+                + " WHERE <MACD = ?";
 
         //Mở kết nối
         con = openDbConnection();
@@ -157,7 +157,7 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
             ps.setObject(5, Cd.getHinh());
             ps.setObject(6, Cd.getMota());
             ps.setObject(7, Macd);
-            ps.executeUpdate();
+            check = ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         } finally {

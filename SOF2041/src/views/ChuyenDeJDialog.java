@@ -359,6 +359,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
 
     //Sửa 1 bản ghi mới từ form vào CSDL theo MaCD
     public void sua() {
+        
         ChuyenDe cd = getForm();
         try {
             tabs.setSelectedIndex(1);
@@ -433,16 +434,6 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         }
     }
 
-    //Check trùng mã
-    public boolean checkTrungMa(String macd) {
-        if (chuyenDeSevice.finByMaCd(macd) == null) {
-            return true;
-        } else {
-            Helper.DialogHelper.alert(this, macd + " đã tồn tại !");
-            return false;
-        }
-    }
-
     //Check trống hình ảnh
     public boolean checkNullHinh() {
         if (_images != null) {
@@ -477,32 +468,27 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
                     && Helper.UtilityHelper.checkThoiLuong(txtThoiLuong)
                     && Helper.UtilityHelper.checkSoHocPhi(txtHocPhi)
                     && Helper.UtilityHelper.checkHocPhi(txtHocPhi)
-                    && Helper.UtilityHelper.checkMoTaCD(txtMoTa)) {
-                if (checkTrungMa(txtMaChuyenDe.getText())) {
+                    && Helper.UtilityHelper.checkMoTaCD(txtMoTa))
                     them();
-                }
-            }
         }
+        duadulieulenbang();
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        if (Helper.UtilityHelper.checkNullText(txtMaChuyenDe)
-                && Helper.UtilityHelper.checkNullText(txtMaChuyenDe)
-                && Helper.UtilityHelper.checkNullText(txtThoiLuong)
+        if (Helper.UtilityHelper.checkNullText(txtThoiLuong)
                 && Helper.UtilityHelper.checkNullText(txtHocPhi)
                 && Helper.UtilityHelper.checkNullText(txtMoTa)
                 && checkNullHinh()) {
-            if (Helper.UtilityHelper.checkMaCD(txtMaChuyenDe)
-                    && Helper.UtilityHelper.checkTenCD(txtTenChuyenDe)
+            if (Helper.UtilityHelper.checkTenCD(txtTenChuyenDe)
                     && Helper.UtilityHelper.checkSoThoiLuong(txtThoiLuong)
                     && Helper.UtilityHelper.checkThoiLuong(txtThoiLuong)
                     && Helper.UtilityHelper.checkSoHocPhi(txtHocPhi)
                     && Helper.UtilityHelper.checkHocPhi(txtHocPhi)
-                    && Helper.UtilityHelper.checkMoTaCD(txtMoTa)) {
+                    && Helper.UtilityHelper.checkMoTaCD(txtMoTa))
                 sua();
-            }
         }
+        duadulieulenbang();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
