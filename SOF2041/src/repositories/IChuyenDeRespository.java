@@ -20,5 +20,5 @@ public interface IChuyenDeRespository extends IDBConnection{
     
     public boolean ThemChuyenDe(ChuyenDe cd);
     
-    public boolean SuaChuyenDe(ChuyenDe cd,String Macd );
+    public ChuyenDe SuaChuyenDe(ChuyenDe cd,String Macd );
 }

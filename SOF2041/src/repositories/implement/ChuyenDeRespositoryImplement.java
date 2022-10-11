@@ -54,14 +54,16 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
                 ps = con.prepareStatement(query);
                 ps.setString(indexParam++, macd);
                 rs = ps.executeQuery();
-                cd = new ChuyenDe();
-                ps.setObject(1, cd.getMachuyende());
-                ps.setObject(2, cd.getTenchuyende());
-                ps.setObject(3, cd.getHocphi());
-                ps.setObject(4, cd.getThoiluong());
-                ps.setObject(5, cd.getHinh());
-                ps.setObject(6, cd.getMota());
-
+               while (rs.next()) {
+                    int indexValue = 1;
+                    ChuyenDe Cd = new ChuyenDe();
+                    Cd.setMachuyende(rs.getNString(indexValue++));
+                    Cd.setTenchuyende(rs.getString(indexValue++));
+                    Cd.setThoiluong(rs.getInt(indexValue++));
+                    Cd.setHocphi(rs.getDouble(indexValue++));
+                    Cd.setHinh(rs.getNString(indexValue++));
+                    Cd.setMota(rs.getString(indexValue++));
+                };
             } catch (SQLException ex) {
                 ex.printStackTrace();
             } finally {
@@ -135,8 +137,8 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
     }
 
     @Override
-    public boolean SuaChuyenDe(ChuyenDe Cd, String Macd) {
-        int check = 0;
+    public ChuyenDe SuaChuyenDe(ChuyenDe Cd, String Macd) {
+        ChuyenDe cd = null;
         String query = "UPDATE [dbo].[CHUYENDE]\n"
                 + "   SET [MACD] = ?\n"
                 + "      ,[TENCD] = ?\n"
@@ -148,22 +150,31 @@ public class ChuyenDeRespositoryImplement extends DBConnection implements IChuye
 
         //Mở kết nối
         con = openDbConnection();
-        try {
-            ps = con.prepareStatement(query);
-            ps.setObject(1, Cd.getMachuyende());
-            ps.setObject(2, Cd.getTenchuyende());
-            ps.setObject(3, Cd.getHocphi());
-            ps.setObject(4, Cd.getThoiluong());
-            ps.setObject(5, Cd.getHinh());
-            ps.setObject(6, Cd.getMota());
-            ps.setObject(7, Macd);
-            check = ps.executeUpdate();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } finally {
-            closeConnection(con);
+        if (con != null) {
+            try {
+                int indexParam = 1;
+                ps = con.prepareStatement(query);
+                ps.setString(indexParam++, Macd);
+                rs = ps.executeQuery();
+               while (rs.next()) {
+                    int indexValue = 1;
+                    Cd.setMachuyende(rs.getNString(indexValue++));
+                    Cd.setTenchuyende(rs.getString(indexValue++));
+                    Cd.setThoiluong(rs.getInt(indexValue++));
+                    Cd.setHocphi(rs.getDouble(indexValue++));
+                    Cd.setHinh(rs.getNString(indexValue++));
+                    Cd.setMota(rs.getString(indexValue++));
+                };
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            } finally {
+                closeConnection(con);
+            }
+
+        } else {
+            System.out.println("Kết nối đến database thất bại");
         }
 
-        return check > 0;
+        return cd;
     }
 }

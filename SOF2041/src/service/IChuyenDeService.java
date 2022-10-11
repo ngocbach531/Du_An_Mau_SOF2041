@@ -20,5 +20,5 @@ public interface IChuyenDeService {
     
     public boolean themChuyenDe(ChuyenDe cd);
     
-    public boolean SuaChuyenDe(ChuyenDe cd,String Macd );
+    public ChuyenDe SuaChuyenDe(ChuyenDe cd,String Macd );
 }

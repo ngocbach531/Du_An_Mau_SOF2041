@@ -37,7 +37,7 @@ public class ChuyenDeServiceImplement implements IChuyenDeService{
     }
 
     @Override
-    public boolean SuaChuyenDe(ChuyenDe cd, String Macd) {
+    public ChuyenDe SuaChuyenDe(ChuyenDe cd, String Macd) {
         return chuyenDeRespository.SuaChuyenDe(cd, Macd);
     }
 }

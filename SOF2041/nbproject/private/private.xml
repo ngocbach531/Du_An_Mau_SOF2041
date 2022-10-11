@@ -4,8 +4,20 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/repositories/implement/ChuyenDeRespositoryImplement.java</file>
-            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/views/ChuyenDeJDialog.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/repositories/IChuyenDeRespository.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/views/DangNhapJDialog.java</file>
             <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/views/EduSysJFrame.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/repositories/implement/NhanVienRepositoryImplement.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/model/HocVien.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/model/NhanVien.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/Helper/UtilityHelper.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/Helper/ShareHelper.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/views/ChuyenDeJDialog.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/model/KhoaHoc.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/model/ChuyenDe.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/service/implement/ChuyenDeServiceImplement.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/service/IChuyenDeService.java</file>
+            <file>file:/D:/Fpoly/FALL%202022/Du_An_Mau_SOF2041/SOF2041/src/model/NguoiHoc.java</file>
         </group>
     </open-files>
 </project-private>

@@ -27,7 +27,7 @@ import service.IChuyenDeService;
  */
 public class ChuyenDeJDialog extends javax.swing.JDialog {
 
-    IChuyenDeService chuyenDeSevice = new ChuyenDeServiceImplement();
+    IChuyenDeService chuyenDeService = new ChuyenDeServiceImplement();
     int _row = 0;
     File _file;
     FileDialog _fd = new FileDialog(new Frame(), "Chọn logo cho chuyên đề", FileDialog.LOAD);
@@ -258,6 +258,9 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblChuyenDeMouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                tblChuyenDeMousePressed(evt);
+            }
         });
         jScrollPane1.setViewportView(tblChuyenDe);
         if (tblChuyenDe.getColumnModel().getColumnCount() > 0) {
@@ -330,7 +333,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         DefaultTableModel model = (DefaultTableModel) tblChuyenDe.getModel();
         model.setRowCount(0);
         try {
-            ArrayList<ChuyenDe> list = chuyenDeSevice.getallChuyenDe();
+            ArrayList<ChuyenDe> list = chuyenDeService.getallChuyenDe();
             for (ChuyenDe cd : list) {
                 model.addRow(new Object[]{
                     cd.getMachuyende(),cd.getTenchuyende(),cd.getHocphi(),cd.getThoiluong(),cd.getHinh(),cd.getMota()
@@ -347,7 +350,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     public void them() {
         ChuyenDe cd = getForm();
         try {
-            chuyenDeSevice.themChuyenDe(cd);
+            chuyenDeService.themChuyenDe(cd);
             this.clearForm();
             tabs.setSelectedIndex(1);
             Helper.DialogHelper.alert(this, "Thêm mới thành công!");
@@ -375,7 +378,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         if (Helper.DialogHelper.confirm(this, "Bạn có muốn xóa hay không?")) {
             String macd = txtMaChuyenDe.getText();
             try {
-                chuyenDeSevice.xoaChuyenDe(macd);
+                chuyenDeService.xoaChuyenDe(macd);
                 this.clearForm();
                 tabs.setSelectedIndex(1);
                 Helper.DialogHelper.alert(this, "Xóa thành công!");
@@ -422,7 +425,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     //Lấy dữ liệu theo index đổ lên form
     public void edit() {
         String macd = (String) tblChuyenDe.getValueAt(this._row, 0);
-        ChuyenDe nv = chuyenDeSevice.finByMaCd(macd);
+        ChuyenDe nv = chuyenDeService.finByMaCd(macd);
         try {
             if (nv != null) {
                 this.setForm(nv); // điền thông tin lên form
@@ -453,6 +456,13 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         boolean first = this._row > 0;
         boolean last = this._row < tblChuyenDe.getRowCount() - 1;
 
+    }
+    
+    public void show(int index){
+        txtMaChuyenDe.setText((String) tblChuyenDe.getValueAt(index, 0));
+        txtTenChuyenDe.setText((String) tblChuyenDe.getValueAt(index, 1));
+        txtHocPhi.setText( tblChuyenDe.getValueAt(index, 2)+ "");
+        txtThoiLuong.setText(tblChuyenDe.getValueAt(index, 3)+ "");
     }
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
@@ -497,6 +507,7 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
         } else {
             Helper.DialogHelper.alert(this, "Chỉ trưởng phòng mới được phép xóa");
         }
+        duadulieulenbang();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void lblHinhMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHinhMouseClicked
@@ -518,9 +529,8 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
     private void tblChuyenDeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChuyenDeMouseClicked
         ChuyenDe cd = new ChuyenDe();
         int getIndex = tblChuyenDe.getSelectedRow();
-        cd = chuyenDeSevice.getallChuyenDe().get(getIndex);
+        cd = chuyenDeService.getallChuyenDe().get(getIndex);
         if (evt.getClickCount() == 2) {
-
             this._row = tblChuyenDe.rowAtPoint(evt.getPoint());
             if (this._row >= 0) {
                 _images = cd.getHinh().toString();
@@ -539,6 +549,10 @@ public class ChuyenDeJDialog extends javax.swing.JDialog {
             clearForm();
         }
     }//GEN-LAST:event_btnClearActionPerformed
+
+    private void tblChuyenDeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblChuyenDeMousePressed
+        show(tblChuyenDe.getSelectedRow());
+    }//GEN-LAST:event_tblChuyenDeMousePressed
 
     /**
      * @param args the command line arguments
